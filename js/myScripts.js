@@ -35,7 +35,8 @@ function addItemCartCount() {
   currItemCount = Number(currItemCount);
   let newItemCount = currItemCount + 1;
   newItemCount = currItemCount.toString();
-  displayedItemCount.textContent = newItemCount;
+  let newCount = document.createTextNode(newItemCount);
+  displayedItemCount.appendChild(newCount);
   document.getElementById("item-count-in-cart").style.display = "inline";
 
 }
