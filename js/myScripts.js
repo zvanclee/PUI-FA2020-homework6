@@ -32,10 +32,9 @@ function addItemToCartMessage() {
 function addItemCartCount() {
   let displayedItemCount = document.getElementById("item-count-in-cart");
   let currItemCount = displayedItemCount.innerHTML;
-  currItemCount = Number(currItemCount);
+  currItemCount = parseInt(currItemCount, 10);
   let newItemCount = currItemCount + 1;
   newItemCount = currItemCount.toString();
-  let newCount = document.createTextNode(newItemCount);
-  displayedItemCount.appendChild(newCount);
+  displayedItemCount.innerHTML = newItemCount;
   document.getElementById("item-count-in-cart").style.display = "inline";
 }
