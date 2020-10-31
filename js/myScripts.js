@@ -29,6 +29,7 @@ function addItemToCartMessage() {
   alert("Item added to cart!")
 }
 
+// adds to count icon above cart
 function addItemCartCount() {
   let displayedItemCount = document.getElementById("item-count-in-cart");
   let currItemCount = displayedItemCount.innerHTML;
