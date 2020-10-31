@@ -31,7 +31,7 @@ function addItemToCartMessage() {
 
 function addItemCartCount() {
   let displayedItemCount = document.getElementById("item-count-in-cart");
-  let currItemCount = displayedItemCount.value;
+  let currItemCount = displayedItemCount.innerHTML;
   currItemCount = Number(currItemCount[0]);
   let newItemCount = currItemCount + 1;
   newItemCount = currItemCount.toString();
