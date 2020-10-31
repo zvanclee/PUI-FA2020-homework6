@@ -29,13 +29,12 @@ function addItemToCartMessage() {
   alert("Item added to cart!")
 }
 
-// adds to count icon above cart
 function addItemCartCount() {
   let displayedItemCount = document.getElementById("item-count-in-cart");
   let currItemCount = displayedItemCount.innerHTML;
   currItemCount = parseInt(currItemCount, 10);
   let newItemCount = currItemCount + 1;
-  newItemCount = currItemCount.toString();
-  displayedItemCount.innerHTML = newItemCount;
+  let strNewItemCount = newItemCount.toString();
+  displayedItemCount.innerHTML = strNewItemCount;
   document.getElementById("item-count-in-cart").style.display = "inline";
 }
