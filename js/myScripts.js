@@ -38,10 +38,4 @@ function addItemCartCount() {
   let newCount = document.createTextNode(newItemCount);
   displayedItemCount.appendChild(newCount);
   document.getElementById("item-count-in-cart").style.display = "inline";
-
-}
-
-function gfg_Run() {
-    span.textContent = "New Span content";
-    el_down.innerHTML = "Span content changed";
 }
