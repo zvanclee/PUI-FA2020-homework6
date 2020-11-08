@@ -24,7 +24,7 @@ function addToCart() {
   var catHarness = new Product(colorChoice, size);
   cartItemArr.push(catHarness);
 	updateCartItemCount(cartItemArr.length);
-  loadCartItems();
+  setCartItems();
   alert(catHarness.size + " " + catHarness.color + " cat harness added to cart!");
 } // end of addToCart
 
@@ -46,8 +46,13 @@ function displayCartItemCount() {
   }
 } // end of updateCartItemCount
 
-// loads items currently in cart
+
+// sets items from product details page
 function loadCartItems() {
+  localStorage.getItem("order");
+}
+
+function setCartItems() {
   localStorage.setItem("order", JSON.stringify(cartItemArr));
 }
 
