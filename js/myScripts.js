@@ -24,6 +24,7 @@ function addToCart() {
   var catHarness = new Product(colorChoice, size);
   cartItemArr.push(catHarness);
 	updateCartItemCount(cartItemArr.length);
+  function loadCartItems();
 
   alert(catHarness.size + " " + catHarness.color + " cat harness added to cart!");
 } // end of addToCart
