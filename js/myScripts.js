@@ -1,6 +1,7 @@
+// array that will hold items in shopping-cart
 let cartItemArr = [];
-let cartItemArrCopy = [];
 
+// constructor for products - will only be used for cat harness on this assignment
 class Product {
   constructor (color, size) {
     this.color = color;
@@ -39,19 +40,14 @@ function updateCartItemCount(newQuantity) {
 function displayCartItemCount() {
   let cartQuantity = document.getElementById("item-count-in-cart");
   var loadedCart = localStorage.getItem("order");
-  cartItemArrCopy = JSON.parse(loadedCart);
-  if(cartItemArrCopy.length != 0) {
-    cartQuantity.innerHTML = cartItemArrCopy.length;
+  cartItemArr = JSON.parse(loadedCart);
+  if(cartItemArr.length != 0) {
+    cartQuantity.innerHTML = cartItemArr.length;
     cartQuantity.style.display = "inline";
   }
 } // end of updateCartItemCount
 
-
-// sets items from product details page
-function loadCartItems() {
-  localStorage.getItem("order");
-}
-
+// set items into cart
 function setCartItems() {
   localStorage.setItem("order", JSON.stringify(cartItemArr));
 }
@@ -59,15 +55,15 @@ function setCartItems() {
 //loads and renders cart items on shopping-cart page
 function cartItemsLoaded() {
   var loadedCart = localStorage.getItem("order");
-	cartItemArrCopy = JSON.parse(loadedCart);
+	cartItemArr = JSON.parse(loadedCart);
 
   var newItem = document.getElementById("item");
 
-	for(var i = 0; i < cartItemArrCopy.length; i++) {
+	for(var i = 0; i < cartItemArr.length; i++) {
     var newItemBox = document.createElement("item");
     newItemBox.id = "item";
 
-	  var item = cartItemArrCopy[i];
+	  var item = cartItemArr[i];
 	  var itemColor = item.color;
 	  var itemSize = item.size;
 
@@ -135,22 +131,22 @@ function cartItemsLoaded() {
 // Deletes items from cart
 // Prompted by clicking trash bin image on shopping cart page
 function deleteItem(itemIndex) {
-  alert(cartItemArrCopy[itemIndex].size + " " + cartItemArrCopy[itemIndex].color + " cat harness removed from cart!");
-	cartItemArrCopy.splice(itemIndex,1);
+  alert(cartItemArr[itemIndex].size + " " + cartItemArr[itemIndex].color + " cat harness removed from cart!");
+	cartItemArr.splice(itemIndex,1);
   saveCartChanges();
   location.reload(); // reloads page to reflect visually indicate deletion of item
 }
 
 // Saves changes to cart after items are deleted
 function saveCartChanges() {
-	localStorage.setItem("order", JSON.stringify(cartItemArrCopy))
+	localStorage.setItem("order", JSON.stringify(cartItemArr))
 }
 
 // Update total price of order
 // Displayed on shopping cart page
 function updateOrderPrice () {
   let orderTotal = document.getElementById("totalPrice");
-  let totalPrice = cartItemArrCopy.length * 29.99;
+  let totalPrice = cartItemArr.length * 29.99;
   totalPrice = totalPrice.toFixed(2);
   orderTotal.innerHTML = "Total: $" + totalPrice;
 }
