@@ -59,6 +59,19 @@ html, body {
   top: 30px;
 }
 
+#item-count-in-cart {
+  position: absolute;
+  left: 95%;
+  width: 20px;
+  background-color: #446DFF;
+  border: 1px solid #FFFFFF;
+  border-radius: 15px;
+  padding: 5px;
+  color: white;
+  font-size: 16px;
+  display: none;
+}
+
 .shopping-cart {
   width: 1000px;
   height: auto;
@@ -76,7 +89,7 @@ html, body {
   margin-bottom: 30px;
 }
 
-.item {
+#item {
   margin: auto;
   margin-bottom: 15px;
   width: 800px;
@@ -89,7 +102,7 @@ html, body {
   background-color: #3E4454;
 }
 
-.item-image {
+#item-image {
   padding-top: 10px;
   padding-left: 20px;
   padding-right: 40px;

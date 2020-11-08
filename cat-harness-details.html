@@ -20,8 +20,8 @@
         <a href="#accessory-page"><h1>Accessories</h1></a>
         <img id="header-search" src="images/header-search-bar.png" alt="search bar"/>
         <img id="header-user" src="images/header-user.png" alt="user image"/>
-        <a href="shopping-cart.html">
-          <span id="item-count-in-cart">0</span>
+        <a href="shopping-cart.html" onclick="loadCartItems()s">
+          <span id="item-count-in-cart"></span>
           <img id="header-cart" src="images/header-cart.png" alt="cart image"/>
         </a>
       </div>
@@ -83,19 +83,20 @@
               </div>
             </div>
           </div>
-          <!-- size choice -->
+
           <div class="size-customization">
-            <span>Size: </span>
-            <div class="size-choice">
-              <button>Tiny</button>
-              <button>Small</button>
-              <button>Medium</button>
-              <button>Large</button>
-            </div>
+            <label>Size: </label>
+            <select id="productSize">
+              <option>Tiny</option>
+              <option>Small</option>
+              <option>Medium</option>
+              <option>Large</option>
+            </select>
           </div>
+
         </div>
         <!-- add to cart button -->
-        <a href="#addingToCart" onClick="addItemToCartMessage(); addItemCartCount()" class="addToCartButton">Add to cart</a>
+        <input type="button" id="addToCartButton" value="Add to cart" onclick="addToCart()">
       </div>  <!-- end of right column -->
     </div> <!-- end of row -->
 

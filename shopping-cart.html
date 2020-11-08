@@ -4,11 +4,12 @@
   <link rel="stylesheet" type="text/css" href="css/shopping-cart-styles.css">
   <link rel="shortcut icon" href="">
   <meta charset="utf-8" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>  <script type="text/javascript" src="js/myScripts.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+  <script type="text/javascript" src="js/myScripts.js"></script>
   <title>Muddy Paws - Cat Harness</title>
 </head>
 
-<body>
+<body onload="cartItemsLoaded()">
   <!-- header -->
     <div class="header">
       <img id="header-logo" src="images/header-logo.png" alt="Muddy Paws logo"/>
@@ -19,7 +20,10 @@
         <a href="#accessory-page"><h1>Accessories</h1></a>
         <img id="header-search" src="images/header-search-bar.png" alt="search bar"/>
         <img id="header-user" src="images/header-user.png" alt="user image"/>
-        <a href="shopping-cart.html"><img id="header-cart" src="images/shopping-cart-highlighted.png" alt="cart image"/></a>
+        <a href="shopping-cart.html" onclick="loadCartItems()">
+          <span id="item-count-in-cart"></span>
+          <img id="header-cart" src="images/header-cart.png" alt="cart image"/>
+        </a>
       </div>
     </div>
 
@@ -32,67 +36,25 @@
         </div>
 
   <!-- item 1 -->
-        <div class="item">
-          <div class="item-image">
+        <div id= "item">
+          <div id="item-image">
             <img src="images/cart-strawberry-harness.png" alt="item image"/>
           </div>
 
           <div class="item-details">
-            <h3>Cat Harness</h3>
-            <p>Color: Strawberry</p>
-            <p>Size: Tiny</p>
+            <h3 id=itemName>Cat Harness</h3>
+            <p id=itemColor>Color: Strawberry</p>
+            <p id=itemSize>Size: Tiny</p>
           </div>
 
           <div class="item-quantity">
             <img src="images/down-arrow.png" alt="dec. quant"/>
-            <h1>1</h1>
+            <h1 id=itemQuant></h1>
             <img src="images/up-arrow.png" alt="inc. quant"/>
           </div>
           <div class="item-price">$29.99</div>
         </div>
         <!-- end of item 1 -->
-
-  <!-- item 2 -->
-        <div class="item">
-          <div class="item-image">
-            <img src="images/cart-blackberry-harness.png" alt="item image"/>
-          </div>
-
-          <div class="item-details">
-            <h3>Cat Harness</h3>
-            <p>Color: Blackberry</p>
-            <p>Size: Small</p>
-          </div>
-
-          <div class="item-quantity">
-            <img src="images/down-arrow.png" alt="dec. quant"/>
-            <h1>2</h1>
-            <img src="images/up-arrow.png" alt="inc. quant"/>
-          </div>
-          <div class="item-price">$59.98</div>
-        </div>
-        <!-- end of item 2 -->
-
-  <!-- item 3 -->
-        <div class="item">
-          <div class="item-image">
-            <img src="images/cart-crazyberry-harness.png" alt="item image"/>
-          </div>
-
-          <div class="item-details">
-            <h3>Cat Harness</h3>
-            <p>Color: Crazyberry</p>
-            <p>Size: Large</p>
-          </div>
-
-          <div class="item-quantity">
-            <img src="images/down-arrow.png" alt="dec. quant"/>
-            <h1>4</h1>
-            <img src="images/up-arrow.png" alt="inc. quant"/>
-          </div>
-          <div class="item-price">$119.96</div>
-        </div>
-        <!-- end of item 3 -->
       </div>
       <!-- end of shopping cart -->
 

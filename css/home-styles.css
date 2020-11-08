@@ -78,6 +78,19 @@ header {
   top: 30px;
 }
 
+#item-count-in-cart {
+  position: absolute;
+  left: 95%;
+  width: 20px;
+  background-color: #446DFF;
+  border: 1px solid #FFFFFF;
+  border-radius: 15px;
+  padding: 5px;
+  color: white;
+  font-size: 16px;
+  display: none;
+}
+
 .left {
   background-color: #FBFCFF;
   grid-area: left;

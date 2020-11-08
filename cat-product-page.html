@@ -19,7 +19,10 @@
           <a href="#accessory-page"><h1>Accessories</h1></a>
           <img id="header-search" src="images/header-search-bar.png" alt="search bar"/>
           <img id="header-user" src="images/header-user.png" alt="user image"/>
-          <a href="shopping-cart.html"><img id="header-cart" src="images/header-cart.png" alt="cart image"/></a>
+          <a href="shopping-cart.html" onclick="loadCartItems()">
+            <span id="item-count-in-cart"></span>
+            <img id="header-cart" src="images/header-cart.png" alt="cart image"/>
+          </a>
         </div>
       </header>
 

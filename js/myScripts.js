@@ -24,17 +24,67 @@ function changeColor(newColor) {
   }
 }
 
-// shows message that item has been added to cart
-function addItemToCartMessage() {
-  alert("Item added to cart!")
+var cartItemArr = [];
+var cartItemArrCopy = [];
+
+// product class for cat harness
+class Product {
+  constructor (color, size) {
+    this.color = color;
+    this.size = size;
+  }
 }
 
-function addItemCartCount() {
-  let displayedItemCount = document.getElementById("item-count-in-cart");
-  let currItemCount = displayedItemCount.innerHTML;
-  currItemCount = parseInt(currItemCount, 10);
-  let newItemCount = currItemCount + 1;
-  let strNewItemCount = newItemCount.toString();
-  displayedItemCount.innerHTML = strNewItemCount;
-  document.getElementById("item-count-in-cart").style.display = "inline";
+function addToCart() {
+  var colorOptions = document.getElementsByName("color");
+  var colorChoice = "none";
+
+  for(var i = 0; i < colorOptions.length; i ++) {
+    if(colorOptions[i].checked) {
+      colorChoice = colorOptions[i].value;
+    }
+  }
+
+  var size = document.getElementById("productSize").value;
+
+  var catHarness = new Product(colorChoice, size);
+  cartItemArr.push(catHarness);
+
+  console.log(cartItemArr);
+	updateCartItemCount(cartItemArr.length)
+} // end of addToCart
+
+function updateCartItemCount(newQuantity) {
+  let cartQuantity = document.getElementById("item-count-in-cart");
+  cartQuantity.innerHTML = newQuantity;
+  cartQuantity.style.display = "inline";
+} // end of updateCartItemCount
+
+function loadCartItems() {
+  localStorage.setItem("order", JSON.stringify(cartItemArr));
 }
+
+function cartItemsLoaded() {
+  var loadedCart = localStorage.getItem("order");
+	cartItemArrCopy = JSON.parse(loadedCart);
+
+  console.log(cartItemArrCopy);
+
+  // var listOfProducts = document.getElementById('listOfProducts');
+  //
+	// for(var i = 0; i < cartItemArrCopy.length; i++) {
+	//    var product = cartItemArrCopy[i]
+	//    var productColor = product.color
+	//    var productSize = product.size
+	//    if (flowerType == 'rose') {
+	// 	listOfProducts.innerHTML += '<div class="roses">Type: ' + flowerType + ' Color: ' + flowerColor + ' Thorns: ' + flowerThorns + '</div>'
+	// 	listOfProducts.innerHTML += '<span onclick="deleteProduct(' + i + ')">[click to delete]</span>'
+	// 	listOfProducts.innerHTML += '<br /><br /><br />'
+	//    }
+	//    else {
+	// 	listOfProducts.innerHTML += '<div onclick="wow()">Type: ' + flowerType + ' Color: ' + flowerColor + ' Thorns: ' + flowerThorns + '</div>'
+	// 	listOfProducts.innerHTML += '<span onclick="deleteProduct(' + i + ')">[click to delete]</span>'
+	// 	listOfProducts.innerHTML += '<br /><br /><br />'
+	//    }
+	// }// end of for-loop
+}// end of cartItemsLoaded
