@@ -1,7 +1,156 @@
-// product details page
-// color customization function
-// -pre: page always loads on 'strawberry' color
-// -post: color of images and text by color field will reflect newly selected color
+let cartItemArr = [];
+let cartItemArrCopy = [];
+
+class Product {
+  constructor (color, size) {
+    this.color = color;
+    this.size = size;
+  }
+}
+
+//Adds item with slected size and color to cart
+function addToCart() {
+  var colorOptions = document.getElementsByName("color");
+  var colorChoice = "none";
+
+  for(var i = 0; i < colorOptions.length; i ++) {
+    if(colorOptions[i].checked) {
+      colorChoice = colorOptions[i].value;
+    }
+  }
+
+  var size = document.getElementById("productSize").value;
+
+  var catHarness = new Product(colorChoice, size);
+  cartItemArr.push(catHarness);
+	updateCartItemCount(cartItemArr.length);
+
+  alert(catHarness.size + " " + catHarness.color + " cat harness added to cart!");
+} // end of addToCart
+
+//Updates visiual representation of number of items in cart
+function updateCartItemCount(newQuantity) {
+  let cartQuantity = document.getElementById("item-count-in-cart");
+  cartQuantity.innerHTML = newQuantity;
+  cartQuantity.style.display = "inline";
+} // end of updateCartItemCount
+
+//Updates visiual representation of number of items in cart
+function displayCartItemCount() {
+  let cartQuantity = document.getElementById("item-count-in-cart");
+  var loadedCart = localStorage.getItem("order");
+  cartItemArrCopy = JSON.parse(loadedCart);
+  if(cartItemArrCopy.length != 0) {
+    cartQuantity.innerHTML = cartItemArrCopy.length;
+    cartQuantity.style.display = "inline";
+  }
+} // end of updateCartItemCount
+
+// loads items currently in cart
+function loadCartItems() {
+  localStorage.setItem("order", JSON.stringify(cartItemArr));
+}
+
+//loads and renders cart items on shopping-cart page
+function cartItemsLoaded() {
+  var loadedCart = localStorage.getItem("order");
+	cartItemArrCopy = JSON.parse(loadedCart);
+
+  var newItem = document.getElementById("item");
+
+	for(var i = 0; i < cartItemArrCopy.length; i++) {
+    var newItemBox = document.createElement("item");
+    newItemBox.id = "item";
+
+	  var item = cartItemArrCopy[i];
+	  var itemColor = item.color;
+	  var itemSize = item.size;
+
+	  if (itemColor == "strawberry") {
+      newItemBox.innerHTML +=
+      '<div id="item-image">' +
+        '<img id="img-file" src="images/cart-strawberry-harness.png" alt="Strawberry Cat Harness Image"/>' +
+      '</div>';
+      newItemBox.innerHTML +=
+      '<div class="item-details">' +
+        '<h3 id="itemName">Cat Harness</h3>' +
+        '<p id="itemColor">' + 'Color: ' + itemColor.charAt(0).toUpperCase() + itemColor.slice(1) + '</p>' +
+        '<p id="itemSize">' + 'Size: ' + itemSize.charAt(0).toUpperCase() + itemSize.slice(1) + '</p>' +
+      '</div>';
+      newItemBox.innerHTML += '<div class="item-price">$29.99' + '</div>';
+      newItemBox.innerHTML += '<img id="trash-bin" src="images/trash.png" alt="Remove item from cart" onclick="deleteItem(' + i + ')""/>';
+	   }
+     else if (itemColor == "blackberry") {
+       newItemBox.innerHTML +=
+       '<div id="item-image">' +
+         '<img id="img-file" src="images/cart-blackberry-harness.png" alt="Blackberry Cat Harness Image"/>' +
+       '</div>';
+       newItemBox.innerHTML +=
+       '<div class="item-details">' +
+         '<h3 id="itemName">Cat Harness</h3>' +
+         '<p id="itemColor">' + 'Color: ' + itemColor.charAt(0).toUpperCase() + itemColor.slice(1) + '</p>' +
+         '<p id="itemSize">' + 'Size: ' + itemSize.charAt(0).toUpperCase() + itemSize.slice(1) + '</p>' +
+       '</div>';
+       newItemBox.innerHTML += '<div class="item-price">$29.99' + '</div>';
+       newItemBox.innerHTML += '<img id="trash-bin" src="images/trash.png" alt="Remove item from cart" onclick="deleteItem(' + i + ')""/>';
+ 	   }
+     else if (itemColor == "crazyberry") {
+       newItemBox.innerHTML +=
+       '<div id="item-image">' +
+         '<img id="img-file" src="images/cart-crazyberry-harness.png" alt="Crazyberry Cat Harness Image"/>' +
+       '</div>';
+       newItemBox.innerHTML +=
+       '<div class="item-details">' +
+         '<h3 id="itemName">Cat Harness</h3>' +
+         '<p id="itemColor">' + 'Color: ' + itemColor.charAt(0).toUpperCase() + itemColor.slice(1) + '</p>' +
+         '<p id="itemSize">' + 'Size: ' + itemSize.charAt(0).toUpperCase() + itemSize.slice(1) + '</p>' +
+       '</div>';
+       newItemBox.innerHTML += '<div class="item-price">$29.99' + '</div>';
+       newItemBox.innerHTML += '<img id="trash-bin" src="images/trash.png" alt="Remove item from cart" onclick="deleteItem(' + i + ')""/>';
+ 	   }
+     else if (itemColor == "fireOrange") {
+       newItemBox.innerHTML +=
+       '<div id="item-image">' +
+         '<img id="img-file" src="images/cart-fireOrange-harness.png" alt="Fire Orange Cat Harness Image"/>' +
+       '</div>';
+       newItemBox.innerHTML +=
+       '<div class="item-details">' +
+         '<h3 id="itemName">Cat Harness</h3>' +
+         '<p id="itemColor">' + 'Color: ' + itemColor.charAt(0).toUpperCase() + itemColor.slice(1) + '</p>' +
+         '<p id="itemSize">' + 'Size: ' + itemSize.charAt(0).toUpperCase() + itemSize.slice(1) + '</p>' +
+       '</div>';
+       newItemBox.innerHTML += '<div class="item-price">$29.99' + '</div>';
+       newItemBox.innerHTML += '<img id="trash-bin" src="images/trash.png" alt="Remove item from cart" onclick="deleteItem(' + i + ')""/>';
+ 	   }
+     document.getElementById("cart").appendChild(newItemBox);
+	}// end of for-loop
+  updateOrderPrice();
+}// end of cartItemsLoaded
+
+// Deletes items from cart
+// Prompted by clicking trash bin image on shopping cart page
+function deleteItem(itemIndex) {
+  alert(cartItemArrCopy[itemIndex].size + " " + cartItemArrCopy[itemIndex].color + " cat harness removed from cart!");
+	cartItemArrCopy.splice(itemIndex,1);
+  saveCartChanges();
+  location.reload(); // reloads page to reflect visually indicate deletion of item
+}
+
+// Saves changes to cart after items are deleted
+function saveCartChanges() {
+	localStorage.setItem("order", JSON.stringify(cartItemArrCopy))
+}
+
+// Update total price of order
+// Displayed on shopping cart page
+function updateOrderPrice () {
+  let orderTotal = document.getElementById("totalPrice");
+  let totalPrice = cartItemArrCopy.length * 29.99;
+  totalPrice = totalPrice.toFixed(2);
+  orderTotal.innerHTML = "Total: $" + totalPrice;
+}
+
+// changes color of image when user selects a new color on product details page
 function changeColor(newColor) {
   let newProductImg = document.getElementById("product-img");
   let colorFieldText = document.getElementById("color-text");
@@ -23,68 +172,3 @@ function changeColor(newColor) {
     colorFieldText.textContent="Fire Orange";
   }
 }
-
-var cartItemArr = [];
-var cartItemArrCopy = [];
-
-// product class for cat harness
-class Product {
-  constructor (color, size) {
-    this.color = color;
-    this.size = size;
-  }
-}
-
-function addToCart() {
-  var colorOptions = document.getElementsByName("color");
-  var colorChoice = "none";
-
-  for(var i = 0; i < colorOptions.length; i ++) {
-    if(colorOptions[i].checked) {
-      colorChoice = colorOptions[i].value;
-    }
-  }
-
-  var size = document.getElementById("productSize").value;
-
-  var catHarness = new Product(colorChoice, size);
-  cartItemArr.push(catHarness);
-
-  console.log(cartItemArr);
-	updateCartItemCount(cartItemArr.length)
-} // end of addToCart
-
-function updateCartItemCount(newQuantity) {
-  let cartQuantity = document.getElementById("item-count-in-cart");
-  cartQuantity.innerHTML = newQuantity;
-  cartQuantity.style.display = "inline";
-} // end of updateCartItemCount
-
-function loadCartItems() {
-  localStorage.setItem("order", JSON.stringify(cartItemArr));
-}
-
-function cartItemsLoaded() {
-  var loadedCart = localStorage.getItem("order");
-	cartItemArrCopy = JSON.parse(loadedCart);
-
-  console.log(cartItemArrCopy);
-
-  // var listOfProducts = document.getElementById('listOfProducts');
-  //
-	// for(var i = 0; i < cartItemArrCopy.length; i++) {
-	//    var product = cartItemArrCopy[i]
-	//    var productColor = product.color
-	//    var productSize = product.size
-	//    if (flowerType == 'rose') {
-	// 	listOfProducts.innerHTML += '<div class="roses">Type: ' + flowerType + ' Color: ' + flowerColor + ' Thorns: ' + flowerThorns + '</div>'
-	// 	listOfProducts.innerHTML += '<span onclick="deleteProduct(' + i + ')">[click to delete]</span>'
-	// 	listOfProducts.innerHTML += '<br /><br /><br />'
-	//    }
-	//    else {
-	// 	listOfProducts.innerHTML += '<div onclick="wow()">Type: ' + flowerType + ' Color: ' + flowerColor + ' Thorns: ' + flowerThorns + '</div>'
-	// 	listOfProducts.innerHTML += '<span onclick="deleteProduct(' + i + ')">[click to delete]</span>'
-	// 	listOfProducts.innerHTML += '<br /><br /><br />'
-	//    }
-	// }// end of for-loop
-}// end of cartItemsLoaded

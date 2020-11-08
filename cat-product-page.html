@@ -3,10 +3,12 @@
 <head>
   <link rel="stylesheet" type="text/css" href="css/cat-product-styles.css">
   <meta charset="utf-8" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+  <script type="text/javascript" src="js/myScripts.js"></script>
   <title>Muddy Paws - Cats</title>
 </head>
 
-<body>
+<body onload="displayCartItemCount()">
   <div class="container">
     <div class ="main">
       <!-- HEADER -->
@@ -19,7 +21,7 @@
           <a href="#accessory-page"><h1>Accessories</h1></a>
           <img id="header-search" src="images/header-search-bar.png" alt="search bar"/>
           <img id="header-user" src="images/header-user.png" alt="user image"/>
-          <a href="shopping-cart.html" onclick="loadCartItems()">
+          <a href="shopping-cart.html">
             <span id="item-count-in-cart"></span>
             <img id="header-cart" src="images/header-cart.png" alt="cart image"/>
           </a>

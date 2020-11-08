@@ -2,23 +2,25 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" type="text/css" href="css/home-styles.css">
-  <meta charset="utf-8" />
+  <meta charset="utf-8"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+  <script type="text/javascript" src="js/myScripts.js"></script>
   <title>Muddy Paws</title>
 </head>
 
-<body>
+<body onload="displayCartItemCount()">
   <div class="container">
     <div class ="main">
       <header>
         <img id="header-logo" src="images/header-logo.png" alt="Muddy Paws logo"/>
         <div class="nav-bar">
-          <a class="active" href="index.html"><h1>Home</h1></a>
+          <a class="active" href="index.html" ><h1>Home</h1></a>
           <a href="cat-product-page.html"><h1>Cats</h1></a>
           <a href="#dog-page"><h1>Dogs</h1></a>
           <a href="#accessory-page"><h1>Accessories</h1></a>
-          <img id="header-search" src="images/header-search-bar.png" alt="search bar"/>
-          <img id="header-user" src="images/header-user.png" alt="user image"/>
-          <a href="shopping-cart.html" onclick="loadCartItems()">
+          <img id="header-search" src="images/header-search-bar.png" alt="search bar" />
+          <img id="header-user" src="images/header-user.png" alt="user image" />
+          <a href="shopping-cart.html">
             <span id="item-count-in-cart"></span>
             <img id="header-cart" src="images/header-cart.png" alt="cart image"/>
           </a>
