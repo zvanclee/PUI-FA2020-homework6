@@ -29,23 +29,23 @@ function addToCart() {
   alert(catHarness.size + " " + catHarness.color + " cat harness added to cart!");
 } // end of addToCart
 
-//Updates visiual representation of number of items in cart
+//Actively updates visiual representation of number of items in cart
 function updateCartItemCount(newQuantity) {
   let cartQuantity = document.getElementById("item-count-in-cart");
   cartQuantity.innerHTML = newQuantity;
   cartQuantity.style.display = "inline";
 } // end of updateCartItemCount
 
-//Updates visiual representation of number of items in cart
+//Updates visiual representation of number of items in cart on web page load
 function displayCartItemCount() {
   let cartQuantity = document.getElementById("item-count-in-cart");
   var loadedCart = localStorage.getItem("order");
   cartItemArr = JSON.parse(loadedCart);
-  if(cartItemArr.length != 0) {
+  if(cartItemArr.length != 0 && cartItemArr != null) {
     cartQuantity.innerHTML = cartItemArr.length;
     cartQuantity.style.display = "inline";
   }
-} // end of updateCartItemCount
+} // end of displayCartItemCount
 
 // set items into cart
 function setCartItems() {
