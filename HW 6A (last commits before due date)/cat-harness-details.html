@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="css/cat-product-details-styles.css">
+  <meta charset="utf-8" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+  <script type="text/javascript" src="js/myScripts.js"></script>
+  <link rel="shortcut icon" href="">
+  <title>Muddy Paws - Cat Harness</title>
+</head>
+
+<body>
+  <!-- header -->
+    <div class="header">
+      <img id="header-logo" src="images/header-logo.png" alt="Muddy Paws logo"/>
+      <div class="nav-bar">
+        <a href="index.html"><h1>Home</h1></a>
+        <a class="active" href="cat-product-page.html"><h1>Cats</h1></a>
+        <a href="#dog-page"><h1>Dogs</h1></a>
+        <a href="#accessory-page"><h1>Accessories</h1></a>
+        <img id="header-search" src="images/header-search-bar.png" alt="search bar"/>
+        <img id="header-user" src="images/header-user.png" alt="user image"/>
+        <a href="shopping-cart.html">
+          <span id="item-count-in-cart">0</span>
+          <img id="header-cart" src="images/header-cart.png" alt="cart image"/>
+        </a>
+      </div>
+    </div>
+
+    <!-- start of row (img and product info/customization/add to cart) -->
+    <div class="row">
+
+    <!-- left column -->
+      <div class="left-column">
+        <ul class="crumb-trail">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="cat-product-page.html">Cats</a></li>
+          <li>Cat Harness</li>
+        </ul>
+        <img id=product-img src="images/strawberry-harness.png" alt="product image" width="500" height="500"/>
+        <img class="sizingChart" src="images/sizing-info.png" alt="sizing chart image" height="200px"/>
+      </div>
+
+      <!-- right column -->
+      <div class="right-column">
+
+        <!-- product description -->
+        <div class="product-description">
+          <h1>Cat Harness</h1>
+          <h2>$29.99</h2>
+          <div class="reviewScore">
+            <img src="images/stars.png" alt="review stars"/>
+            <h3>0 Reviews</h3>
+          </div>
+          <p>The Muddy Paws Cat Harness is the best harness for your cat’s comfort and protection.
+            With our double-strap safety technology, you can be rest assured that your cat will be safe and comfortable.
+            The vented fabric used throughout the harness also allows for cats to be comfortable in all conditions - hot or cold.
+            Putting on and removing the harness is completed with just one click.
+          </p>
+        </div>
+
+        <!-- customization panel -->
+        <div class="product-customization">
+          <!-- color choice -->
+          <div class="product-color">
+            <span>Color: <span id="color-text">Strawberry</span></span><br><br>
+            <div class="color-choice">
+              <div>
+                <input type="radio" id="strawberry" name="color" value="strawberry" onClick="changeColor(this.value)" checked>
+                <label for="strawberry"></label>
+              </div>
+              <div>
+                <input type="radio" id="blackberry" name="color" value="blackberry" onClick="changeColor(this.value)">
+                <label for="blackberry"></label>
+              </div>
+              <div>
+                <input type="radio" id="crazyberry" name="color" value="crazyberry" onClick="changeColor(this.value)">
+                <label for="crazyberry"></label>
+              </div>
+              <div>
+                <input type="radio" id="fireOrange" name="color" value="fireOrange" onClick="changeColor(this.value)">
+                <label for="fireOrange"></label>
+              </div>
+            </div>
+          </div>
+          <!-- size choice -->
+          <div class="size-customization">
+            <span>Size: </span>
+            <div class="size-choice">
+              <button>Tiny</button>
+              <button>Small</button>
+              <button>Medium</button>
+              <button>Large</button>
+            </div>
+          </div>
+        </div>
+        <!-- add to cart button -->
+        <a href="#addingToCart" onClick="addItemToCartMessage(); addItemCartCount()" class="addToCartButton">Add to cart</a>
+      </div>  <!-- end of right column -->
+    </div> <!-- end of row -->
+
+    <div class="footer">
+      <div class="footer-nav-options">
+        <div class="footer-shop">
+          <h2 style="margin-bottom:0;">Shop</h2>
+          <a href="cat-product-page.html">Cats</a><br>
+          <a href="#dog-page">Dogs</a><br>
+          <a href="#accessory-page">Accessories</a>
+        </div>
+        <div class="footer-customer-service">
+          <h2 style="margin-bottom:0;">Customer Service</h2>
+          <a href="#customer-service-page">Customer Service</a><br>
+          <a href="#shipping-page">Shipping</a><br>
+          <a href="#returns-page">Returns</a>
+        </div>
+        <div class="footer-muddy-paws">
+          <h2 style="margin-bottom:0;">Muddy Paws</h2>
+          <a href="#about-us-page">About Us</a><br>
+          <a href="#contact-us-page">Contact Us</a><br>
+          <a href="#privacy-policy-page">Privacy Policy</a>
+        </div>
+        <div class="footer-back-to-top">
+          <br><br>
+          <a href="cat-harness-details.html">Back to Top</a><br>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
