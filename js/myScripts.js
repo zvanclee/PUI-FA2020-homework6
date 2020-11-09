@@ -12,7 +12,7 @@ class Product {
 //Adds item with slected size and color to cart
 function addToCart() {
   var colorOptions = document.getElementsByName("color");
-  var colorChoice = "none";
+  var colorChoice = "";
 
   for(var i = 0; i < colorOptions.length; i ++) {
     if(colorOptions[i].checked) {
