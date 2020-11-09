@@ -41,9 +41,11 @@ function displayCartItemCount() {
   let cartQuantity = document.getElementById("item-count-in-cart");
   var loadedCart = localStorage.getItem("order");
   cartItemArr = JSON.parse(loadedCart);
-  if(cartItemArr != null && cartItemArr.length != 0) {
-    cartQuantity.innerHTML = cartItemArr.length;
-    cartQuantity.style.display = "inline";
+  if(cartItemArr != null) {
+    if(cartItemArr.length != 0) {
+      cartQuantity.innerHTML = cartItemArr.length;
+      cartQuantity.style.display = "inline";
+    }
   }
 } // end of displayCartItemCount
 
