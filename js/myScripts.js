@@ -11,6 +11,9 @@ class Product {
 
 //Adds item with slected size and color to cart
 function addToCart() {
+  if(cartItemArr == null) {
+    cartItemArr = [];
+  }
   var colorOptions = document.getElementsByName("color");
   var colorChoice = "";
 
