@@ -60,74 +60,75 @@ function cartItemsLoaded() {
 	cartItemArr = JSON.parse(loadedCart);
 
   var newItem = document.getElementById("item");
+  if(cartItemArr != null) {
+  	for(var i = 0; i < cartItemArr.length; i++) {
+      var newItemBox = document.createElement("item");
+      newItemBox.id = "item";
 
-	for(var i = 0; i < cartItemArr.length; i++) {
-    var newItemBox = document.createElement("item");
-    newItemBox.id = "item";
+  	  var item = cartItemArr[i];
+  	  var itemColor = item.color;
+  	  var itemSize = item.size;
 
-	  var item = cartItemArr[i];
-	  var itemColor = item.color;
-	  var itemSize = item.size;
-
-	  if (itemColor == "strawberry") {
-      newItemBox.innerHTML +=
-      '<div id="item-image">' +
-        '<img id="img-file" src="images/cart-strawberry-harness.png" alt="Strawberry Cat Harness Image"/>' +
-      '</div>';
-      newItemBox.innerHTML +=
-      '<div class="item-details">' +
-        '<h3 id="itemName">Cat Harness</h3>' +
-        '<p id="itemColor">' + 'Color: ' + itemColor.charAt(0).toUpperCase() + itemColor.slice(1) + '</p>' +
-        '<p id="itemSize">' + 'Size: ' + itemSize.charAt(0).toUpperCase() + itemSize.slice(1) + '</p>' +
-      '</div>';
-      newItemBox.innerHTML += '<div class="item-price">$29.99' + '</div>';
-      newItemBox.innerHTML += '<img id="trash-bin" src="images/trash.png" alt="Remove item from cart" onclick="deleteItem(' + i + ')""/>';
-	   }
-     else if (itemColor == "blackberry") {
-       newItemBox.innerHTML +=
-       '<div id="item-image">' +
-         '<img id="img-file" src="images/cart-blackberry-harness.png" alt="Blackberry Cat Harness Image"/>' +
-       '</div>';
-       newItemBox.innerHTML +=
-       '<div class="item-details">' +
-         '<h3 id="itemName">Cat Harness</h3>' +
-         '<p id="itemColor">' + 'Color: ' + itemColor.charAt(0).toUpperCase() + itemColor.slice(1) + '</p>' +
-         '<p id="itemSize">' + 'Size: ' + itemSize.charAt(0).toUpperCase() + itemSize.slice(1) + '</p>' +
-       '</div>';
-       newItemBox.innerHTML += '<div class="item-price">$29.99' + '</div>';
-       newItemBox.innerHTML += '<img id="trash-bin" src="images/trash.png" alt="Remove item from cart" onclick="deleteItem(' + i + ')""/>';
- 	   }
-     else if (itemColor == "crazyberry") {
-       newItemBox.innerHTML +=
-       '<div id="item-image">' +
-         '<img id="img-file" src="images/cart-crazyberry-harness.png" alt="Crazyberry Cat Harness Image"/>' +
-       '</div>';
-       newItemBox.innerHTML +=
-       '<div class="item-details">' +
-         '<h3 id="itemName">Cat Harness</h3>' +
-         '<p id="itemColor">' + 'Color: ' + itemColor.charAt(0).toUpperCase() + itemColor.slice(1) + '</p>' +
-         '<p id="itemSize">' + 'Size: ' + itemSize.charAt(0).toUpperCase() + itemSize.slice(1) + '</p>' +
-       '</div>';
-       newItemBox.innerHTML += '<div class="item-price">$29.99' + '</div>';
-       newItemBox.innerHTML += '<img id="trash-bin" src="images/trash.png" alt="Remove item from cart" onclick="deleteItem(' + i + ')""/>';
- 	   }
-     else if (itemColor == "fireOrange") {
-       newItemBox.innerHTML +=
-       '<div id="item-image">' +
-         '<img id="img-file" src="images/cart-fireOrange-harness.png" alt="Fire Orange Cat Harness Image"/>' +
-       '</div>';
-       newItemBox.innerHTML +=
-       '<div class="item-details">' +
-         '<h3 id="itemName">Cat Harness</h3>' +
-         '<p id="itemColor">' + 'Color: ' + itemColor.charAt(0).toUpperCase() + itemColor.slice(1) + '</p>' +
-         '<p id="itemSize">' + 'Size: ' + itemSize.charAt(0).toUpperCase() + itemSize.slice(1) + '</p>' +
-       '</div>';
-       newItemBox.innerHTML += '<div class="item-price">$29.99' + '</div>';
-       newItemBox.innerHTML += '<img id="trash-bin" src="images/trash.png" alt="Remove item from cart" onclick="deleteItem(' + i + ')""/>';
- 	   }
-     document.getElementById("cart").appendChild(newItemBox);
-	}// end of for-loop
-  updateOrderPrice();
+  	  if (itemColor == "strawberry") {
+        newItemBox.innerHTML +=
+        '<div id="item-image">' +
+          '<img id="img-file" src="images/cart-strawberry-harness.png" alt="Strawberry Cat Harness Image"/>' +
+        '</div>';
+        newItemBox.innerHTML +=
+        '<div class="item-details">' +
+          '<h3 id="itemName">Cat Harness</h3>' +
+          '<p id="itemColor">' + 'Color: ' + itemColor.charAt(0).toUpperCase() + itemColor.slice(1) + '</p>' +
+          '<p id="itemSize">' + 'Size: ' + itemSize.charAt(0).toUpperCase() + itemSize.slice(1) + '</p>' +
+        '</div>';
+        newItemBox.innerHTML += '<div class="item-price">$29.99' + '</div>';
+        newItemBox.innerHTML += '<img id="trash-bin" src="images/trash.png" alt="Remove item from cart" onclick="deleteItem(' + i + ')""/>';
+  	   }
+       else if (itemColor == "blackberry") {
+         newItemBox.innerHTML +=
+         '<div id="item-image">' +
+           '<img id="img-file" src="images/cart-blackberry-harness.png" alt="Blackberry Cat Harness Image"/>' +
+         '</div>';
+         newItemBox.innerHTML +=
+         '<div class="item-details">' +
+           '<h3 id="itemName">Cat Harness</h3>' +
+           '<p id="itemColor">' + 'Color: ' + itemColor.charAt(0).toUpperCase() + itemColor.slice(1) + '</p>' +
+           '<p id="itemSize">' + 'Size: ' + itemSize.charAt(0).toUpperCase() + itemSize.slice(1) + '</p>' +
+         '</div>';
+         newItemBox.innerHTML += '<div class="item-price">$29.99' + '</div>';
+         newItemBox.innerHTML += '<img id="trash-bin" src="images/trash.png" alt="Remove item from cart" onclick="deleteItem(' + i + ')""/>';
+   	   }
+       else if (itemColor == "crazyberry") {
+         newItemBox.innerHTML +=
+         '<div id="item-image">' +
+           '<img id="img-file" src="images/cart-crazyberry-harness.png" alt="Crazyberry Cat Harness Image"/>' +
+         '</div>';
+         newItemBox.innerHTML +=
+         '<div class="item-details">' +
+           '<h3 id="itemName">Cat Harness</h3>' +
+           '<p id="itemColor">' + 'Color: ' + itemColor.charAt(0).toUpperCase() + itemColor.slice(1) + '</p>' +
+           '<p id="itemSize">' + 'Size: ' + itemSize.charAt(0).toUpperCase() + itemSize.slice(1) + '</p>' +
+         '</div>';
+         newItemBox.innerHTML += '<div class="item-price">$29.99' + '</div>';
+         newItemBox.innerHTML += '<img id="trash-bin" src="images/trash.png" alt="Remove item from cart" onclick="deleteItem(' + i + ')""/>';
+   	   }
+       else if (itemColor == "fireOrange") {
+         newItemBox.innerHTML +=
+         '<div id="item-image">' +
+           '<img id="img-file" src="images/cart-fireOrange-harness.png" alt="Fire Orange Cat Harness Image"/>' +
+         '</div>';
+         newItemBox.innerHTML +=
+         '<div class="item-details">' +
+           '<h3 id="itemName">Cat Harness</h3>' +
+           '<p id="itemColor">' + 'Color: ' + itemColor.charAt(0).toUpperCase() + itemColor.slice(1) + '</p>' +
+           '<p id="itemSize">' + 'Size: ' + itemSize.charAt(0).toUpperCase() + itemSize.slice(1) + '</p>' +
+         '</div>';
+         newItemBox.innerHTML += '<div class="item-price">$29.99' + '</div>';
+         newItemBox.innerHTML += '<img id="trash-bin" src="images/trash.png" alt="Remove item from cart" onclick="deleteItem(' + i + ')""/>';
+   	   }
+       document.getElementById("cart").appendChild(newItemBox);
+  	}// end of for-loop
+    updateOrderPrice();
+  }
 }// end of cartItemsLoaded
 
 // Deletes items from cart
