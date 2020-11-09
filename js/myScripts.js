@@ -39,7 +39,7 @@ function updateCartItemCount(newQuantity) {
 //Updates visiual representation of number of items in cart
 function displayCartItemCount() {
   let cartQuantity = document.getElementById("item-count-in-cart");
-  var loadedCart = localStorage.getItem("totalOrder");
+  var loadedCart = localStorage.getItem("order");
   cartItemArr = JSON.parse(loadedCart);
   if(cartItemArr.length != 0) {
     cartQuantity.innerHTML = cartItemArr.length;
@@ -49,12 +49,12 @@ function displayCartItemCount() {
 
 // set items into cart
 function setCartItems() {
-  localStorage.setItem("totalOrder", JSON.stringify(cartItemArr));
+  localStorage.setItem("order", JSON.stringify(cartItemArr));
 }
 
 //loads and renders cart items on shopping-cart page
 function cartItemsLoaded() {
-  var loadedCart = localStorage.getItem("totalOrder");
+  var loadedCart = localStorage.getItem("order");
 	cartItemArr = JSON.parse(loadedCart);
 
   var newItem = document.getElementById("item");
@@ -139,7 +139,7 @@ function deleteItem(itemIndex) {
 
 // Saves changes to cart after items are deleted
 function saveCartChanges() {
-	localStorage.setItem("totalOrder", JSON.stringify(cartItemArr))
+	localStorage.setItem("order", JSON.stringify(cartItemArr))
 }
 
 // Update total price of order
